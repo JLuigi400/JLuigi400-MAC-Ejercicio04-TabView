@@ -12,7 +12,7 @@ struct ControlHogarVista: View {
     
     var body: some View {
         TabView {
-            Tab("Crear", systemImage: "numbers.pa"){
+            Tab("Crear", systemImage: "plus.circle"){
                 Text("Etiqueta de una vista")
             }
             

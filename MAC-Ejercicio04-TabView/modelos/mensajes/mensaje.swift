@@ -6,7 +6,7 @@
 //
 import Foundation
 
-struct Mensajes: Identifiable{
+struct Mensaje: Identifiable{
     var id = UUID() // Identificador UNIVERSAL Unico
     
     let remitente: String?

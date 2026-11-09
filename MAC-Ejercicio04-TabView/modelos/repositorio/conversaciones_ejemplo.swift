@@ -11,17 +11,17 @@ let conversacionesFalsas = [
         remitente: "Fixer",
         receptor: "Reaper Aerin",
         mensajes: [
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Aerin",
                 cuerpo: "Aerin, reporta tu posición."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Aerin",
                 receptor: "Fixer",
                 cuerpo: "En los límites del Bosque Sombrío. No he detectado actividad hostil."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Aerin",
                 cuerpo: "Mantén vigilancia. El objetivo podría moverse al anochecer."
@@ -33,22 +33,22 @@ let conversacionesFalsas = [
         remitente: "Fixer",
         receptor: "Reaper Kael",
         mensajes: [
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Kael",
                 cuerpo: "Kael, la guarnición oriental necesita apoyo."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Kael",
                 receptor: "Fixer",
                 cuerpo: "Ya estoy en camino. Llegaré antes del amanecer."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Kael",
                 cuerpo: "Prioriza la evacuación de civiles antes del combate."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Kael",
                 receptor: "Fixer",
                 cuerpo: "Entendido. Ningún inocente quedará atrás."
@@ -60,22 +60,22 @@ let conversacionesFalsas = [
         remitente: "Fixer",
         receptor: "Reaper Lyra",
         mensajes: [
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Lyra",
                 receptor: "Fixer",
                 cuerpo: "He encontrado las ruinas descritas en los documentos."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Lyra",
                 cuerpo: "¿Hay señales de reliquias sagradas?"
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Lyra",
                 receptor: "Fixer",
                 cuerpo: "Sí, pero también hay guardianes antiguos custodiándolas."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Lyra",
                 cuerpo: "No tomes riesgos innecesarios. Espera refuerzos."
@@ -87,22 +87,22 @@ let conversacionesFalsas = [
         remitente: "Fixer",
         receptor: "Reaper Draven",
         mensajes: [
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Draven",
                 cuerpo: "¿Cuál es el estado del enfrentamiento?"
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Draven",
                 receptor: "Fixer",
                 cuerpo: "Las fuerzas enemigas han sido contenidas."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Draven",
                 cuerpo: "¿Bajas?"
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Draven",
                 receptor: "Fixer",
                 cuerpo: "Mínimas. La misión continúa según lo previsto."
@@ -114,22 +114,22 @@ let conversacionesFalsas = [
         remitente: "Fixer",
         receptor: "Reaper Selene",
         mensajes: [
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Selene",
                 receptor: "Fixer",
                 cuerpo: "Tengo información sobre el comandante enemigo."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Selene",
                 cuerpo: "Adelante."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Reaper Selene",
                 receptor: "Fixer",
                 cuerpo: "Planea atacar la capital en tres días."
             ),
-            Mensajes(
+            Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Selene",
                 cuerpo: "Excelente trabajo. Enviaré el informe de inmediato."

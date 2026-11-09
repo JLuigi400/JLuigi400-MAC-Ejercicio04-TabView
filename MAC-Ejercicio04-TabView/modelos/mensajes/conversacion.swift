@@ -13,5 +13,5 @@ struct Conversacion: Identifiable {
     var remitente: String
     var receptor: String
     
-    var mensajes: [Mensajes]
+    var mensajes: [Mensaje]
 }

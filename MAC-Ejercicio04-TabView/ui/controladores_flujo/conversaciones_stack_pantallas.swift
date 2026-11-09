@@ -16,11 +16,12 @@ struct ConversacionesControlVista: View {
             
             ForEach(mensajes_control.conversaciones) { conversacion in
                 NavigationLink {
-                    Text("\(conversacion.mensajes)")
+                    MensajesPantalla(mensajes: conversacion.mensajes)
                 }
                 label: {
-                    Text("Conversacion entre \(conversacion.receptor) y \(conversacion.remitente)")
+                    ConversacionPrevista(conversacion: conversacion)
                 }
+                .buttonStyle(.plain)
                 
             }
         }

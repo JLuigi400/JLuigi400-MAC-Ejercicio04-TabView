@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PantallaCargando: View {
     var body: some View {
-        Text("Cargando...")
+        Text("Cerebro Cargando...")
     }
 }
 

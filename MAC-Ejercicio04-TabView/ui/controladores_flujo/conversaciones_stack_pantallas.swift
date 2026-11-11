@@ -22,6 +22,8 @@ struct ConversacionesControlVista: View {
                     ConversacionPrevista(conversacion: conversacion)
                 }
                 .buttonStyle(.plain)
+                .foregroundStyle(Color("FEHAccent"))
+                .frame(height: 40)
                 
             }
         }

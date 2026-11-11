@@ -12,6 +12,7 @@ struct ConversacionPrevista: View {
     
     var body: some View {
         HStack {
+            Spacer()
             Circle()
                 .fill(Color("FEHAccent"))
                 .frame(width: 40, height: 40)
@@ -38,6 +39,7 @@ struct ConversacionPrevista: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color("FEHAccent"), lineWidth: 1)
             )
+            Spacer()
         }
         //Text("Conversación entre \(conversacion.remitente) & \(conversacion.receptor)")
     }

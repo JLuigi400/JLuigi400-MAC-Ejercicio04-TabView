@@ -12,8 +12,6 @@ struct ConversacionesControlVista: View {
     
     var body: some View {
         NavigationStack {
-            
-            
             ForEach(mensajes_control.conversaciones) { conversacion in
                 NavigationLink {
                     MensajesPantalla(mensajes: conversacion.mensajes)

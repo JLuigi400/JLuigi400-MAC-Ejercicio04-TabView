@@ -14,7 +14,7 @@ struct ARPantalla: View {
         /// QUE pantalla quiere mostrarse de momento.
         
         RealityView { escenario in
-            escenario.camera = .spatialTracking
+            //escenario.camera =
         }
     }
 }

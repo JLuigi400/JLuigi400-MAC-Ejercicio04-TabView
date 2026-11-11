@@ -13,4 +13,6 @@
 ///
 /// El Estilo que vamos a realizar sera el Estilo de Fire Emblem Heroes. Asi para tener las ideas, notas detalles. ETC.
 ///
-/// 
+/// Cosas a requerir de imagenes para ver si podemos adjuntarlas luego, y ofrecer un espacio agradable.
+/// Imagen de fondo de un castillo (No estoy seguro si se podra cambiar de imagen necesaria
+/// Pergamino - Este ayudara para el panel de mensajes

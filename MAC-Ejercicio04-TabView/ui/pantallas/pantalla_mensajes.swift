@@ -29,6 +29,7 @@ struct MensajesPantalla: View {
                         MensajeVista(mensaje: mensaje)
                     }
                 }
+                .padding(.vertical)
             }
         }
         /*

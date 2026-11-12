@@ -11,11 +11,10 @@ struct ConversacionPrevista: View {
     let conversacion: Conversacion
     
     var body: some View {
-        HStack {
-            Spacer()
+        HStack (spacing: 12) {
             Circle()
                 .fill(Color("FEHAccent"))
-                .frame(width: 40, height: 40)
+                .frame(width: 44, height: 44)
                 .overlay (
                     Text(String(conversacion.remitente.prefix(1)))
                         .font(.headline)
@@ -28,8 +27,6 @@ struct ConversacionPrevista: View {
                         .font(.subheadline)
                         .bold()
                         .foregroundStyle(Color("FEHText"))
-                    
-                    Spacer()
                 }
             }
             .padding(12)
@@ -39,7 +36,7 @@ struct ConversacionPrevista: View {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color("FEHAccent"), lineWidth: 1)
             )
-            Spacer()
+            .padding(.horizontal)
         }
         //Text("Conversación entre \(conversacion.remitente) & \(conversacion.receptor)")
     }

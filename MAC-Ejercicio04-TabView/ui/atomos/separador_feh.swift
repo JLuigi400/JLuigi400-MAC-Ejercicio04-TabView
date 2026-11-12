@@ -17,7 +17,7 @@ enum EstiloSeparadorFEH {
 }
 
 struct SeparadorFEH: View {
-    // estilo = Es donde iran el Switch Case
+    // estilo = Es donde iran el Switch Case1
     var estilo: EstiloSeparadorFEH = .clasico
     var color: Color = Color("FEHSecondary")
     

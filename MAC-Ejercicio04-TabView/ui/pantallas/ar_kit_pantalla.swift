@@ -15,6 +15,7 @@ struct ARPantalla: View {
     @State private var iconoInvocacion = "sparkles"
     @State private var imagenDetectada = false
     @State private var orbeIncovado = false
+    @State private var suscripcion: EventSubscription?
     
     @State private var detector = AnchorEntity(
         .image(group: "FEHARResources", name: "FEHOrbTarget")
@@ -39,15 +40,18 @@ struct ARPantalla: View {
                 .padding(.horizontal)
                 
                 RealityView { escenario in
+                    
                     escenario.camera = .spatialTracking
                     
-                    escenario.add(detector)
-                    
-                    _ = escenario.subscribe(
+                    suscripcion = escenario.subscribe(
                         to: SceneEvents.AnchoredStateChanged.self)
                     { evento in
                         imagenDetectada = evento.isAnchored
+                        
+                        print("Imagen Detectada: \(imagenDetectada)")
                     }
+                    
+                    escenario.add(detector)
                 }
                 .background(Color("FEHPanel"))
                 .cornerRadius(8)

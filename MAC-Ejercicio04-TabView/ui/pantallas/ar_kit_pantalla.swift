@@ -11,7 +11,7 @@ import ARKit
 
 struct ARPantalla: View {
     
-    @State private var estadoInvocacion = "Esperando invocación"
+    // @State private var estadoInvocacion = "Esperando invocación"
     @State private var iconoInvocacion = "sparkles"
     @State private var imagenDetectada = false
     @State private var orbeIncovado = false
@@ -68,9 +68,9 @@ struct ARPantalla: View {
                             imagenDetectada ? "Imagen Detectada" :
                             "Buscando imagen..."
                     )
-                        .font(.headline)
-                        .foregroundStyle(Color("FEHText"))
-                        .multilineTextAlignment(.center)
+                    .font(.headline)
+                    .foregroundStyle(Color("FEHText"))
+                    .multilineTextAlignment(.center)
                 }
                 .padding()
                 .background(Color("FEHPanel"))
@@ -81,13 +81,28 @@ struct ARPantalla: View {
                 )
                 .padding(.horizontal)
                 
-                Button("INVOCAR") {
+                Button(orbeIncovado ? "VOLVER A INVOCAR" : "INVOCAR") {
                     
+                    //Esto elimina el orbe anterior
+                    detector.children.removeAll()
+                    
+                    // Aqui juega el RNG de generar aleatorio 1 de 4 colores diferentes
+                    let colores: [UIColor] = [
+                        .red,
+                        .blue,
+                        .green,
+                        .lightGray
+                    ]
+                    
+                    // Aqui comienza el RNG un color aleatorio
+                    let colorAleatorio = colores.randomElement() ?? .white
+                    
+                    // Aqui se genera el nuevo orbe
                     let orbe = ModelEntity(
                         mesh: .generateSphere(radius: 0.035),
                         materials: [
                             SimpleMaterial(
-                                color: .purple,
+                                color: colorAleatorio,
                                 isMetallic: true
                             )
                         ]
@@ -104,11 +119,14 @@ struct ARPantalla: View {
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(
-                    imagenDetectada && !orbeIncovado
+                    imagenDetectada
                     ? Color("FEHPanel")
-                    : Color.clear
+                    : Color.gray.opacity(0.3)
                 )
-                .disabled(!imagenDetectada || orbeIncovado)
+                .foregroundStyle(
+                    imagenDetectada ? Color.white : Color.gray
+                )
+                .disabled(!imagenDetectada)
             }
             .padding()
             .frame(maxWidth: .infinity)

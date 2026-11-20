@@ -7,11 +7,18 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
 
 struct ARPantalla: View {
     
     @State private var estadoInvocacion = "Esperando invocación"
     @State private var iconoInvocacion = "sparkles"
+    @State private var imagenDetectada = false
+    @State private var orbeIncovado = false
+    
+    @State private var detector = AnchorEntity(
+        .image(group: "FEHARResources", name: "FEHOrbTarget")
+    )
     
     var body: some View {
         ZStack {
@@ -33,15 +40,17 @@ struct ARPantalla: View {
                 
                 RealityView { escenario in
                     escenario.camera = .spatialTracking
+                    
+                    escenario.add(detector)
+                    
+                    _ = escenario.subscribe(
+                        to: SceneEvents.AnchoredStateChanged.self)
+                    { evento in
+                        imagenDetectada = evento.isAnchored
+                    }
                 }
                 .background(Color("FEHPanel"))
                 .cornerRadius(8)
-                .overlay(
-                    Image("FEHSummoningOrb")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 150)
-                )
                 .padding(.horizontal)
                 
                 VStack(spacing: 10) {
@@ -64,27 +73,38 @@ struct ARPantalla: View {
                 .padding(.horizontal)
                 
                 Button("INVOCAR") {
-                    estadoInvocacion = "Orbe cargándose..."
-                    iconoInvocacion = "circle.hexagongrid.fill"
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        estadoInvocacion = "¡Héroe invocado!"
-                        iconoInvocacion = "person.crop.circle.badge.checkmark"
-                    }
+                    let orbe = ModelEntity(
+                        mesh: .generateSphere(radius: 0.035),
+                        materials: [
+                            SimpleMaterial(
+                                color: .purple,
+                                isMetallic: true
+                            )
+                        ]
+                    )
+                    
+                    orbe.position.y = 0.06
+                    
+                    detector.addChild(orbe)
+                    
+                    orbeIncovado = true
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color("FEHPrimary"))
-                .foregroundStyle(Color("FEHBackground"))
-                .cornerRadius(8)
-                .padding(.horizontal)
-                
-                Spacer()
+                .disabled(!imagenDetectada || orbeIncovado)
             }
-            .padding(.top)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color("FEHPrimary"))
+            .foregroundStyle(Color("FEHBackground"))
+            .cornerRadius(8)
+            .padding(.horizontal)
+            
+            Spacer()
         }
+        .padding(.top)
     }
 }
+
 
 #Preview {
     ARPantalla()

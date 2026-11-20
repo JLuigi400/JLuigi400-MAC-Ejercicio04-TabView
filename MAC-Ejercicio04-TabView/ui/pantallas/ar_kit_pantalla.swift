@@ -44,8 +44,9 @@ struct ARPantalla: View {
                     escenario.camera = .spatialTracking
                     
                     suscripcion = escenario.subscribe(
-                        to: SceneEvents.AnchoredStateChanged.self)
-                    { evento in
+                        to: SceneEvents.AnchoredStateChanged.self,
+                        on: detector
+                    ) { evento in
                         imagenDetectada = evento.isAnchored
                         
                         print("Imagen Detectada: \(imagenDetectada)")
@@ -62,7 +63,11 @@ struct ARPantalla: View {
                         .font(.system(size: 28))
                         .foregroundStyle(Color("FEHPrimary"))
                     
-                    Text(estadoInvocacion)
+                    Text(
+                        orbeIncovado ? "¡Orbe Invocado!" :
+                            imagenDetectada ? "Imagen Detectada" :
+                            "Buscando imagen..."
+                    )
                         .font(.headline)
                         .foregroundStyle(Color("FEHText"))
                         .multilineTextAlignment(.center)
@@ -93,7 +98,16 @@ struct ARPantalla: View {
                     detector.addChild(orbe)
                     
                     orbeIncovado = true
+                    
+                    print("Orbe invocado")
                 }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(
+                    imagenDetectada && !orbeIncovado
+                    ? Color("FEHPanel")
+                    : Color.clear
+                )
                 .disabled(!imagenDetectada || orbeIncovado)
             }
             .padding()

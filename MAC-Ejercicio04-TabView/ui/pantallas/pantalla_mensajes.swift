@@ -24,12 +24,14 @@ struct MensajesPantalla: View {
                     .padding(.top, 10)
                 
                 // Aqui ira todo el contenido desplazado con un Scroll de lista (Probar entre LazyVStack o un ScrollView)
-                LazyVStack {
-                    ForEach(mensajes) { mensaje in
-                        MensajeVista(mensaje: mensaje)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(mensajes) { mensaje in
+                            MensajeVista(mensaje: mensaje)
+                        }
                     }
+                    .padding(.vertical)
                 }
-                .padding(.vertical)
             }
         }
         /*

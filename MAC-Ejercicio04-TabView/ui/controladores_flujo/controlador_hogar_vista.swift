@@ -36,7 +36,6 @@ struct ControlHogarVista: View {
                 }
                 .toolbarBackground(Color("FEHPanel"), for: .tabBar)
                 .toolbarBackground(.visible, for: .tabBar)
-                .toolbarColorScheme(.light, for: .tabBar)
                 .tint(Color("FEHPrimary"))
             }
         }

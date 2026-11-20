@@ -11,7 +11,7 @@ struct MensajeVista: View {
     let mensaje: Mensaje
     
     var MensajePropio: Bool {
-        ((mensaje.remitente?.contains("Fixer")) != nil)
+        mensaje.remitente == "Fixer"
     }
     
     var body: some View {

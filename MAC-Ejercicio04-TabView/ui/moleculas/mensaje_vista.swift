@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MensajeVista: View {
+    
     let mensaje: Mensaje
     
     var MensajePropio: Bool {
@@ -15,47 +16,49 @@ struct MensajeVista: View {
     }
     
     var body: some View {
-        HStack {
-            // Si el mensaje es del Remitente, coloca un spacer de izquierda para moverse a la derecha
-            if MensajePropio {
-                Spacer(minLength: 40)
+        VStack(alignment: .leading, spacing: 8) {
+            
+            HStack {
+                if MensajePropio {
+                    Spacer()
+                }
+                
+                Text(mensaje.remitente ?? "Desconocido")
+                    .font(.headline)
+                    .foregroundStyle(Color("FEHSecondary"))
+                
+                if !MensajePropio {
+                    Spacer()
+                }
             }
             
-            VStack (alignment: MensajePropio ? .trailing : .leading, spacing: 4) {
-                
-                // Remitente
-                Text("Remitente: \(mensaje.remitente ?? "ERROR 404 - USUARIO NO ENCONTRADO")")
-                    .font(.caption2)
-                    .bold()
-                    .foregroundColor(Color("FEHPrimary"))
-                
-                // Receptor
-                Text("Receptor: \(mensaje.receptor ?? "ERROR404 - RECEPTOR NO ENCONTRADO.")")
-                    .font(.caption)
-                    .bold()
-                    .foregroundColor(Color("FEHSecondary"))
-                
-                Text("Mensaje: \(mensaje.cuerpo)")
-                    .font(.subheadline)
-                    .foregroundColor(Color("FEHText"))
-                    .multilineTextAlignment(.leading)
-                    .padding(12)
-                    .background(Color("FEHPanel"))
-                    .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color("FEHAccent"), lineWidth: 1)
-                    )
-            }
-            if !MensajePropio {
-                Spacer(minLength: 40)
-            }
+            SeparadorFEH(
+                estilo: .discreto,
+                color: Color("FEHAccent")
+            )
+            
+            Text(mensaje.cuerpo)
+                .font(.body)
+                .foregroundStyle(Color("FEHText"))
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 4)
+        .padding()
+        .background(Color("FEHPanel"))
+        .cornerRadius(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("FEHAccent"), lineWidth: 1)
+        )
+        .padding(.horizontal)
     }
 }
 
 #Preview {
-    MensajeVista(mensaje: Mensaje(remitente: "Fixer", receptor: "Mauricio", cuerpo: "Tus dibujos son una porqueria, no te quiero mucho"))
+    MensajeVista(
+        mensaje: Mensaje(
+            remitente: "Fixer",
+            receptor: "Mauricio",
+            cuerpo: "Todo listo para iniciar la misión."
+        )
+    )
 }

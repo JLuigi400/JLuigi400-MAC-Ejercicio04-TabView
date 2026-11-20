@@ -8,40 +8,46 @@
 import SwiftUI
 
 struct ConversacionPrevista: View {
+    
     let conversacion: Conversacion
     
     var body: some View {
-        HStack (spacing: 12) {
-            Circle()
-                .fill(Color("FEHAccent"))
-                .frame(width: 44, height: 44)
-                .overlay (
-                    Text(String(conversacion.remitente.prefix(1)))
-                        .font(.headline)
-                        .foregroundStyle(Color("FEHBackground"))
-                )
+        HStack(spacing: 12) {
+            
+            Image(systemName: "scroll.fill")
+                .font(.title2)
+                .foregroundStyle(Color("FEHSecondary"))
             
             VStack(alignment: .leading, spacing: 4) {
-                HStack {
-                    Text("Mensaje de \(conversacion.remitente) para \(conversacion.receptor)")
-                        .font(.subheadline)
-                        .bold()
-                        .foregroundStyle(Color("FEHText"))
-                }
+                
+                Text(conversacion.receptor)
+                    .font(.headline)
+                    .foregroundStyle(Color("FEHText"))
+                
+                Text("Correspondencia de \(conversacion.remitente)")
+                    .font(.caption)
+                    .foregroundStyle(Color("FEHSecondary"))
             }
-            .padding(12)
-            .background(Color("FEHPanel"))
-            .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color("FEHAccent"), lineWidth: 1)
-            )
-            .padding(.horizontal)
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundStyle(Color("FEHAccent"))
         }
-        //Text("Conversación entre \(conversacion.remitente) & \(conversacion.receptor)")
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color("FEHPanel"))
+        .cornerRadius(8)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("FEHAccent"), lineWidth: 1)
+        )
     }
 }
 
 #Preview {
-    ConversacionPrevista(conversacion: conversacionesFalsas[0])
+    ConversacionPrevista(
+        conversacion: conversacionesFalsas[0]
+    )
+    .padding()
 }

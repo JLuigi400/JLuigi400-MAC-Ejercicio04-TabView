@@ -9,41 +9,78 @@ import SwiftUI
 import RealityKit
 
 struct ARPantalla: View {
+    
+    @State private var estadoInvocacion = "Esperando invocación"
+    @State private var iconoInvocacion = "sparkles"
+    
     var body: some View {
-        /// RealityView pide un parametro para que realice su funcion, en este caso
-        /// QUE pantalla quiere mostrarse de momento.
         ZStack {
-            // Fondo general de la app
+            
             Color("FEHBackground")
                 .ignoresSafeArea()
             
             VStack(spacing: 16) {
-                Text("PANEL DE CONTROL - HOGAR")
-                    .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(Color("FEHText"))
                 
-                // Panel estético estilo FEH
-                VStack(spacing: 12) {
-                    Text("Bienvenido al Cuartel General")
-                        .font(.headline)
-                        .foregroundColor(Color("FEHPrimary"))
-                    
-                    Text("Estado del sistema: Operativo y listo para misiones.")
-                        .font(.subheadline)
-                        .foregroundColor(Color("FEHText"))
-                        .multilineTextAlignment(.center)
+                Text("ALTAR DE INVOCACIÓN")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(Color("FEHText"))
+                
+                SeparadorFEH(
+                    estilo: .ornamental,
+                    color: Color("FEHAccent")
+                )
+                .padding(.horizontal)
+                
+                RealityView { escenario in
+                    escenario.camera = .spatialTracking
                 }
-                .padding(20)
                 .background(Color("FEHPanel"))
                 .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color("FEHAccent"), lineWidth: 1.5)
+                        .stroke(Color("FEHAccent"), lineWidth: 1)
                 )
                 .padding(.horizontal)
+                
+                VStack(spacing: 10) {
+                    Image(systemName: iconoInvocacion)
+                        .font(.system(size: 28))
+                        .foregroundStyle(Color("FEHPrimary"))
+                    
+                    Text(estadoInvocacion)
+                        .font(.headline)
+                        .foregroundStyle(Color("FEHText"))
+                        .multilineTextAlignment(.center)
+                }
+                .padding()
+                .background(Color("FEHPanel"))
+                .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color("FEHAccent"), lineWidth: 1)
+                )
+                .padding(.horizontal)
+                
+                Button("INVOCAR") {
+                    estadoInvocacion = "Orbe cargándose..."
+                    iconoInvocacion = "circle.hexagongrid.fill"
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        estadoInvocacion = "¡Héroe invocado!"
+                        iconoInvocacion = "person.crop.circle.badge.checkmark"
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color("FEHPrimary"))
+                .foregroundStyle(Color("FEHBackground"))
+                .cornerRadius(8)
+                .padding(.horizontal)
+                
+                Spacer()
             }
+            .padding(.top)
         }
-
     }
 }
 

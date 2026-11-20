@@ -37,8 +37,10 @@ struct ARPantalla: View {
                 .background(Color("FEHPanel"))
                 .cornerRadius(8)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color("FEHAccent"), lineWidth: 1)
+                    Image("FEHSummoningOrb")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 150)
                 )
                 .padding(.horizontal)
                 

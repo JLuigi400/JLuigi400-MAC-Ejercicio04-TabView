@@ -25,7 +25,7 @@ struct MensajesPantalla: View {
                 
                 // Aqui ira todo el contenido desplazado con un Scroll de lista (Probar entre LazyVStack o un ScrollView)
                 ScrollView {
-                    LazyVStack {
+                    LazyVStack (spacing: 8){
                         ForEach(mensajes) { mensaje in
                             MensajeVista(mensaje: mensaje)
                         }

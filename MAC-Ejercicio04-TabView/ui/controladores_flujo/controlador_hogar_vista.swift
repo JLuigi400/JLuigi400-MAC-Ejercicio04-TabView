@@ -18,7 +18,7 @@ struct ControlHogarVista: View {
             VStack {
                 TabView {
                     Tab("Crear", systemImage: "plus.circle"){
-                        Text("Etiqueta de una vista")
+                        CrearPantalla()
                     }
                     
                     Tab("Hogar", systemImage: "apple.homekit"){

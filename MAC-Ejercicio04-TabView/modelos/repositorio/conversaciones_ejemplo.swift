@@ -13,18 +13,53 @@ let conversacionesFalsas = [
         mensajes: [
             Mensaje(
                 remitente: "Fixer",
-                receptor: "Reaper Aerin",
-                cuerpo: "Aerin, reporta tu posición."
+                receptor: "Reaper Kael",
+                cuerpo: "Necesito un informe de la situación."
             ),
             Mensaje(
-                remitente: "Reaper Aerin",
+                remitente: "Reaper Kael",
                 receptor: "Fixer",
-                cuerpo: "En los límites del Bosque Sombrío. No he detectado actividad hostil."
+                cuerpo: "El territorio permanece bajo vigilancia."
             ),
             Mensaje(
                 remitente: "Fixer",
-                receptor: "Reaper Aerin",
-                cuerpo: "Mantén vigilancia. El objetivo podría moverse al anochecer."
+                receptor: "Reaper Kael",
+                cuerpo: "¿Alguna anomalía en los alrededores?"
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "He detectado una fuente de energía desconocida."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Mantén una distancia prudente."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "La energía parece provenir de un antiguo altar."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Podría tratarse de un punto de invocación."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "Solicito autorización para investigar."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Autorización concedida. Procede con cautela."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "Recibido. Mantendré abierta la comunicación."
             )
         ]
     ),
@@ -36,22 +71,52 @@ let conversacionesFalsas = [
             Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Kael",
-                cuerpo: "Kael, la guarnición oriental necesita apoyo."
+                cuerpo: "Necesito un informe de la situación."
             ),
             Mensaje(
                 remitente: "Reaper Kael",
                 receptor: "Fixer",
-                cuerpo: "Ya estoy en camino. Llegaré antes del amanecer."
+                cuerpo: "El territorio permanece bajo vigilancia."
             ),
             Mensaje(
                 remitente: "Fixer",
                 receptor: "Reaper Kael",
-                cuerpo: "Prioriza la evacuación de civiles antes del combate."
+                cuerpo: "¿Alguna anomalía en los alrededores?"
             ),
             Mensaje(
                 remitente: "Reaper Kael",
                 receptor: "Fixer",
-                cuerpo: "Entendido. Ningún inocente quedará atrás."
+                cuerpo: "He detectado una fuente de energía desconocida."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Mantén una distancia prudente."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "La energía parece provenir de un antiguo altar."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Podría tratarse de un punto de invocación."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "Solicito autorización para investigar."
+            ),
+            Mensaje(
+                remitente: "Fixer",
+                receptor: "Reaper Kael",
+                cuerpo: "Autorización concedida. Procede con cautela."
+            ),
+            Mensaje(
+                remitente: "Reaper Kael",
+                receptor: "Fixer",
+                cuerpo: "Recibido. Mantendré abierta la comunicación."
             )
         ]
     ),
